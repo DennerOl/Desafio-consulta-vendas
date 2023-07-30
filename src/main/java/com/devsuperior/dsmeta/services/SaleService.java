@@ -52,8 +52,7 @@ public class SaleService {
 		LocalDate max = maxDate.equals("") ? today : LocalDate.parse(maxDate);
 		LocalDate min = minDate.equals("") ? max.minusYears(1L) : LocalDate.parse(minDate);
 		
-		List<SummaryProjection> result = repository.findSummary(min, max);
-		
+		List<SummaryProjection> result = repository.findSummary(min, max);	
 		return result.stream().map(x -> new SummaryDTO(x)).toList();
 
 	}

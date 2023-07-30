@@ -2,8 +2,7 @@ package com.devsuperior.dsmeta.dto;
 
 import java.time.LocalDate;
 
-import org.springframework.beans.BeanUtils;
-
+import com.devsuperior.dsmeta.entities.Sale;
 import com.devsuperior.dsmeta.projections.ReportProjection;
 
 public class ReportDTO {
@@ -21,8 +20,23 @@ public class ReportDTO {
         		
     }
     
+    public ReportDTO(Sale entity){
+    	id = entity.getId();
+        date = entity.getDate();
+        amount = entity.getAmount();
+    	sellerName = entity.getSeller().getName();
+  //  	BeanUtils.copyProperties(entity, this);
+        
+    }
+
+    
     public ReportDTO(ReportProjection projection) {
-    	BeanUtils.copyProperties(projection, this);
+    	 id = projection.getId();
+         date = projection.getDate();
+         amount = projection.getAmount();
+         sellerName = projection.getName();
+    	
+    	//BeanUtils.copyProperties(projection, this);
     }
 
 	public Long getId() {

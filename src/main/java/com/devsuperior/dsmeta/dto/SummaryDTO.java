@@ -1,7 +1,5 @@
 package com.devsuperior.dsmeta.dto;
 
-import org.springframework.beans.BeanUtils;
-
 import com.devsuperior.dsmeta.projections.SummaryProjection;
 
 public class SummaryDTO {
@@ -17,7 +15,9 @@ public class SummaryDTO {
 	}
     
 	 public SummaryDTO(SummaryProjection projection) {
-	    	BeanUtils.copyProperties(projection, this);
+		 	sellerName = projection.getName();
+	        amount = projection.getSalesAmount();
+	    	//BeanUtils.copyProperties(projection, this);
 	    }
 
 	public String getSellerName() {
