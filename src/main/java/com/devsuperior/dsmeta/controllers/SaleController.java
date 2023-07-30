@@ -26,13 +26,13 @@ public class SaleController {
 		return ResponseEntity.ok(dto);
 	}
 	@GetMapping(value = "/report")
-	public ResponseEntity<Page<SaleReportDTO>> getReport(
+	public ResponseEntity<Page<ReportDTO>> findByReport(
 		// TODO
 		return null;
 	}
 
 	@GetMapping(value = "/summary")
-	public ResponseEntity<List<SaleSummaryDTO>> getSummary(
+	public ResponseEntity<List<SummaryDTO>> findBySummary(
 		// TODO
 		return null;
 	}
